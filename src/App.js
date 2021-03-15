@@ -1,4 +1,4 @@
-import React,{useRef,useReducer,useMemo,useCallback} from 'react'
+import React,{useRef,useReducer,useMemo,useCallback,createContext} from 'react'
 import CreateUser from './CreateUser'
 import UserList from './UserList'
 import useInputs from './useInputs'
@@ -52,6 +52,7 @@ function reducer(state,action){
         throw new Error('Unhandled action')
   }
 }
+export const UserDispatch = creacteContext(null)
 function App() {
   const [state,dispatch] = useReducer(reducer,initialState)
   const [form,onChange,reset] = useInputs({
@@ -94,11 +95,11 @@ function App() {
   const count = useMemo(() => countActiveUsers(users),[users])
 
   return (
-    <>
+    <UserDispatch.Provider value={dispatch}>
       <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate}/>
       <UserList users={users} onToggle={onToggle} onRemove={onRemove}/>
       <div>활성 사용자 수: {count}</div>
-    </>
+    </UserDispatch.Provider>
   )
 }
 
