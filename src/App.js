@@ -4,6 +4,8 @@ import CreateUser from './CreateUser'
 import UserList from './UserList'
 import useInputs from './useInputs'
 
+window.produce=producce
+
 function countActiveUsers(users){
   console.log('활성 사용자 수를 세는중...')
   return users.filter(user =>user.active).length
