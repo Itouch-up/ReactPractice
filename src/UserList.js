@@ -4,7 +4,6 @@ import {UserDispatch} from './App'
 const User = React.memo(function User({ user }) {
   const { username, email, id, active } = user
   const dispatch = useContext(UserDispatch)
-
   return (
     <div>
       <b
@@ -20,7 +19,6 @@ const User = React.memo(function User({ user }) {
 })
 
 function UserList({ users }) {
-
   return (
     <div>
       {
