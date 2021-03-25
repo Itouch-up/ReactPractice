@@ -4,7 +4,7 @@ import CreateUser from './CreateUser'
 import UserList from './UserList'
 import useInputs from './useInputs'
 
-window.produce=producce
+window.produce=produce
 
 function countActiveUsers(users){
   console.log('활성 사용자 수를 세는중...')
@@ -53,7 +53,7 @@ function reducer(state,action){
           // }
           case 'REMOVE_USER':
             return produce(state,draft=>{
-              const index = draft.users.findIndex(user=>user.id===active.id)
+              const index = draft.users.findIndex(user=>user.id===action.id)
               draft.users.splice(index,1)
             })
             // return{
