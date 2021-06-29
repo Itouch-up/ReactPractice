@@ -38,11 +38,15 @@ class Counter extends Component{
     //     this.handleIncrease=this.handleIncrease.bind(this)
     //     this.handleDecrease=this.handleDecrease.bind(this)
     // }
-    constructor(props){
-        super(props)
-        this.state={
-            counter:0
-        }
+    // constructor(props){
+    //     super(props)
+    //     this.state={
+    //         counter:0
+    //     }
+    // }
+    state = {
+        counter:0
+        fixed:1
     }
     handleIncrease=()=>{
         this.setState({
@@ -61,6 +65,7 @@ class Counter extends Component{
                 <h1>{this.state.counter}</h1>
                 <button onClick={this.handleIncrease}>+1</button>
                 <button onClick={this.handleDecrease}>-1</button>
+                <p>고정 값 : {this.state.fixed}</p>
             </div>
         )
     }
